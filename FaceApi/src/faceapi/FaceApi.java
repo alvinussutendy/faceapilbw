@@ -24,9 +24,10 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+/**
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import static org.opencv.highgui.Highgui.imread;
+import static org.opencv.highgui.Highgui.imread;*/
 
 /**
  *
@@ -43,7 +44,7 @@ public class FaceApi {
     
 
     private static final String faceAttributes =
-        "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+        "gender,headPose,smile,emotion,occlusion,blur,exposure,noise";
     /**
      * @param args the command line arguments
      */
@@ -58,11 +59,12 @@ public class FaceApi {
         String depan = "{\"url\":\"";
         String tutup = "\"}";
         String imageWithFaces = depan+link+tutup;
-        
+       
+        /**
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        Mat src = imread("camera.jpg");
+        Mat src = imread("camera.jpg");*/
 //        String imageWithFaces = src.toString(); 
-        BufferedImage bImage = ImageIO.read(new File("camera.jpg"));
+        BufferedImage bImage = ImageIO.read(new File("Foto training\\cowo\\Rudi Farel.jpg"));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ImageIO.write(bImage, "jpg", bos );
         byte [] data = bos.toByteArray();
