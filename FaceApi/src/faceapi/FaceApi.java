@@ -65,7 +65,8 @@ public class FaceApi {
         Mat src = imread("camera.jpg");*/
 //        String imageWithFaces = src.toString(); 
         //BufferedImage bImage = ImageIO.read(new File("Foto training\\cowo\\Agil-Widana.jpg"));
-        BufferedImage bImage = ImageIO.read(new File("cewe\\"+sc.next()));
+        //BufferedImage bImage = ImageIO.read(new File("cowo\\"+sc.nextLine()));
+         BufferedImage bImage = ImageIO.read(new File("baru 2\\cowo\\"+sc.nextLine()));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ImageIO.write(bImage, "jpg", bos );
         byte [] data = bos.toByteArray();
