@@ -52,7 +52,7 @@ public class FaceApi {
         HttpClient httpclient = HttpClientBuilder.create().build();
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Masukan Link Gambar:");
+        System.out.println("Masukan Link Gambar dan Format(ex:.jpg):");
         
         String link = "https://media.licdn.com/dms/image/C5103AQG90gfFL_TeEQ/profile-displayphoto-shrink_200_200/0?e=1577318400&v=beta&t=xu_EfmtL1GO1b8gVMTt7bjVu1u89eK4YbLnhNjkScic";
 
@@ -64,9 +64,7 @@ public class FaceApi {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         Mat src = imread("camera.jpg");*/
 //        String imageWithFaces = src.toString(); 
-        //BufferedImage bImage = ImageIO.read(new File("Foto training\\cowo\\Agil-Widana.jpg"));
-        //BufferedImage bImage = ImageIO.read(new File("cowo\\"+sc.nextLine()));
-         BufferedImage bImage = ImageIO.read(new File("baru 2\\cowo\\"+sc.nextLine()));
+        BufferedImage bImage = ImageIO.read(new File("Baru\\cowo\\"+sc.nextLine()));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ImageIO.write(bImage, "jpg", bos );
         byte [] data = bos.toByteArray();
@@ -104,13 +102,24 @@ public class FaceApi {
                 System.out.println("REST Response:\n");
 
                 String jsonString = EntityUtils.toString(entity).trim();
+                jsonString = jsonString.replace('[', ' '); jsonString = jsonString.replace(']', ' '); 
+                jsonString = jsonString.trim();
                 if (jsonString.charAt(0) == '[') {
                     JSONArray jsonArray = new JSONArray(jsonString);
                     System.out.println(jsonArray.toString(2));
+                    
+                    //Proses disini
+//                    System.out.println(jsonArray.get(0).toString());
                 }
                 else if (jsonString.charAt(0) == '{') {
                     JSONObject jsonObject = new JSONObject(jsonString);
                     System.out.println(jsonObject.toString(2));
+                    
+                    //Proses disini
+                    JSONObject faceAttributes = new JSONObject(jsonObject.get("faceAttributes"));
+                    System.out.println("Hasil cari: "+jsonObject.get("faceAttributes"));
+//                    System.out.println(faceAttributes.get("neutral"));
+
                 } else {
                     System.out.println(jsonString);
                 }
