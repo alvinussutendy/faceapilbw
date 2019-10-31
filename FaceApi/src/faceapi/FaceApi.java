@@ -116,16 +116,15 @@ public class FaceApi {
                     System.out.println(jsonObject.toString(2));
                     
                     //Proses disini
-                    //Proses disini
-                    JSONObject faceRectangle = new JSONObject(jsonObject.getJSONObject("faceRectangle").toString(2));
-                    JSONObject faceAttributes = new JSONObject(jsonObject.getJSONObject("faceAttributes").toString(2));
-                    JSONObject emotion = new JSONObject(faceAttributes.getJSONObject("emotion").toString(2));
+                    Engine e = new Engine(jsonObject);
                     
-                    System.out.println("Hasil cari: "+faceRectangle.toString());
-                    System.out.println("Hasil cari: "+faceAttributes.getJSONObject("emotion"));
-//                    System.out.println(emotion.toString());
-//                    System.out.println(faceAttributes.getJSONObject("emotion"));
-
+                    //Testing 2
+                    System.out.println("Testing 2");
+                    System.out.println(e.faceRectangle.toString()); System.out.println(e.faceAttributes.toString());
+                    System.out.println(e.emotion.toString()); System.out.println(e.gender);
+                    System.out.println(e.exposure.toString()); System.out.println(e.occlusion.toString());
+                    System.out.println(e.noise.toString()); System.out.println(e.blur.toString()); 
+                    System.out.println(e.headPose.toString()); System.out.println(e.smile);
                 } else {
                     System.out.println(jsonString);
                 }
