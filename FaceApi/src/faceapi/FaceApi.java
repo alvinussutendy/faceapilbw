@@ -116,9 +116,12 @@ public class FaceApi {
                     System.out.println(jsonObject.toString(2));
                     
                     //Proses disini
-                    JSONObject faceAttributes = new JSONObject(jsonObject.get("faceAttributes"));
-                    System.out.println("Hasil cari: "+jsonObject.get("faceAttributes"));
-//                    System.out.println(faceAttributes.get("neutral"));
+                    JSONObject faceAttributes = new JSONObject(jsonObject.getJSONObject("faceAttributes").toString(2));
+//                    System.out.println("Hasil cari: "+jsonObject.get("faceAttributes"));
+                    System.out.println("Hasil cari: "+faceAttributes.getJSONObject("emotion"));
+                    JSONObject emotion = new JSONObject(faceAttributes.getJSONObject("emotion").toString(2));
+//                    System.out.println(emotion.toString());
+//                    System.out.println(faceAttributes.getJSONObject("emotion"));
 
                 } else {
                     System.out.println(jsonString);
