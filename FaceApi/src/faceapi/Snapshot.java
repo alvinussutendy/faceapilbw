@@ -204,9 +204,7 @@ public class Snapshot extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int returnVal = jFileChooser1.showSaveDialog(this);
-        System.out.println("Masuk");
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            System.out.println("Masuk2");
             File file = jFileChooser1.getSelectedFile();
             Highgui.imwrite(file.getPath(), frame);
         } else {
