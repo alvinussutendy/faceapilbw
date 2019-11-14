@@ -24,10 +24,10 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 /**
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import static org.opencv.highgui.Highgui.imread;*/
+ * import org.opencv.core.Core; import org.opencv.core.Mat; import static org.opencv.highgui.Highgui.imread;
+ */
 
 /**
  *
@@ -35,44 +35,44 @@ import static org.opencv.highgui.Highgui.imread;*/
  */
 public class FaceApi {
 
+    private String imageAddress;
+
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "85d799141b4746d6827f4ffd52db6375";
 
-    private static final String uriBase =
-        "https://pascalfaceapisandbox.cognitiveservices.azure.com/face/v1.0/detect";
-    
-    
+    private static final String uriBase
+            = "https://pascalfaceapisandbox.cognitiveservices.azure.com/face/v1.0/detect";
 
-    private static final String faceAttributes =
-        "gender,headPose,smile,emotion,occlusion,blur,exposure,noise";
+    private static final String faceAttributes
+            = "gender,headPose,smile,emotion,occlusion,blur,exposure,noise";
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws URISyntaxException, IOException {
+    public FaceApi(String imageAddress) {
+        this.imageAddress = imageAddress;
+    }
+
+    public void processImage() throws URISyntaxException, IOException {
         HttpClient httpclient = HttpClientBuilder.create().build();
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Masukan Link Gambar dan Format(ex:.jpg):");
-        
+
         String link = "https://media.licdn.com/dms/image/C5103AQG90gfFL_TeEQ/profile-displayphoto-shrink_200_200/0?e=1577318400&v=beta&t=xu_EfmtL1GO1b8gVMTt7bjVu1u89eK4YbLnhNjkScic";
 
         String depan = "{\"url\":\"";
         String tutup = "\"}";
-        String imageWithFaces = depan+link+tutup;
-       
-        /**
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        Mat src = imread("camera.jpg");*/
-//        String imageWithFaces = src.toString(); 
-        BufferedImage bImage = ImageIO.read(new File("Foto training\\cowo\\done\\"+sc.nextLine()));
+        String imageWithFaces = depan + link + tutup;
+
+        BufferedImage bImage = ImageIO.read(new File(imageAddress));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(bImage, "jpg", bos );
-        byte [] data = bos.toByteArray();
-//        ByteArrayContent byteContent = new ByteArrayContent(data);
-        ByteArrayEntity content = new ByteArrayEntity(data); System.out.println(content);
-    
-        try
-        {
+        ImageIO.write(bImage, "jpg", bos);
+        byte[] data = bos.toByteArray();
+        ByteArrayEntity content = new ByteArrayEntity(data);
+        System.out.println(content);
+
+        try {
             URIBuilder builder = new URIBuilder(uriBase);
 
             // Request parameters. All of them are optional.
@@ -90,51 +90,58 @@ public class FaceApi {
 
             // Request body.
 //            StringEntity reqEntity = new StringEntity(imageWithFaces);
-            request.setEntity(content); 
+            request.setEntity(content);
 //            request.setEntity(reqEntity);
 
             // Execute the REST API call and get the response entity.
             HttpResponse response = httpclient.execute(request);
             HttpEntity entity = response.getEntity();
-            if (entity != null)
-            {
+            if (entity != null) {
                 // Format and display the JSON response.
                 System.out.println("REST Response:\n");
 
                 String jsonString = EntityUtils.toString(entity).trim();
-                jsonString = jsonString.replace('[', ' '); jsonString = jsonString.replace(']', ' '); 
+                jsonString = jsonString.replace('[', ' ');
+                jsonString = jsonString.replace(']', ' ');
                 jsonString = jsonString.trim();
                 if (jsonString.charAt(0) == '[') {
                     JSONArray jsonArray = new JSONArray(jsonString);
                     System.out.println(jsonArray.toString(2));
-                    
+
                     //Proses disini
 //                    System.out.println(jsonArray.get(0).toString());
-                }
-                else if (jsonString.charAt(0) == '{') {
+                } else if (jsonString.charAt(0) == '{') {
                     JSONObject jsonObject = new JSONObject(jsonString);
                     System.out.println(jsonObject.toString(2));
-                    
+
                     //Proses disini
                     Engine e = new Engine(jsonObject);
-                    
+
                     //Testing 2
                     System.out.println("Testing 2");
-                    System.out.println(e.faceRectangle.toString()); System.out.println(e.faceAttributes.toString());
-                    System.out.println(e.emotion.toString()); System.out.println(e.gender);
-                    System.out.println(e.exposure.toString()); System.out.println(e.occlusion.toString());
-                    System.out.println(e.noise.toString()); System.out.println(e.blur.toString()); 
-                    System.out.println(e.headPose.toString()); System.out.println(e.smile);
+                    System.out.println(e.faceRectangle.toString());
+                    System.out.println(e.faceAttributes.toString());
+                    System.out.println(e.emotion.toString());
+                    System.out.println(e.gender);
+                    System.out.println(e.exposure.toString());
+                    System.out.println(e.occlusion.toString());
+                    System.out.println(e.noise.toString());
+                    System.out.println(e.blur.toString());
+                    System.out.println(e.headPose.toString());
+                    System.out.println(e.smile);
                 } else {
                     System.out.println(jsonString);
                 }
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             // Display error message.
             System.out.println(e.getMessage());
         }
     }
-    
+
+//    public static void main(String[] args) throws URISyntaxException, IOException {
+//        FaceApi fa = new FaceApi("E:\\Document\\IF UNPAR\\Semester 7\\LBW\\Tugas Besar\\faceapilbw\\FaceApi\\Foto training\\cowo\\done\\1200px-Lee_Jong-suk_March_2018.png");
+//        fa.processImage();
+//    }
+
 }
