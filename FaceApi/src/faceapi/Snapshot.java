@@ -101,8 +101,18 @@ public class Snapshot extends javax.swing.JFrame {
         });
 
         jButton2.setText("Pause");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Take Snapshot");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,7 +141,7 @@ public class Snapshot extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(95, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(90, 90, 90)
@@ -182,7 +192,7 @@ public class Snapshot extends javax.swing.JFrame {
                 Utils.setLastDir(fc.getSelectedFile()); //untuk setting directory dimana file itu berada
                 fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
             }
-            FaceApi fa = new FaceApi(fileName); 
+            FaceApi fa = new FaceApi(fileName);
             fa.processImage();
         } catch (URISyntaxException ex) {
             Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
@@ -192,24 +202,26 @@ public class Snapshot extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int returnVal = jFileChooser1.showSaveDialog(this);
+        System.out.println("Masuk");
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            System.out.println("Masuk2");
+            File file = jFileChooser1.getSelectedFile();
+            Highgui.imwrite(file.getPath(), frame);
+        } else {
+            System.out.println("File access cancelled by user.");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         /// stop button 
         myThread.runnable = false;
         jButton2.setEnabled(false);
         jButton1.setEnabled(true);
 
         webSource.release();
-    }
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        int returnVal = jFileChooser1.showSaveDialog(this);
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = jFileChooser1.getSelectedFile();
-            Highgui.imwrite(file.getPath(), frame);
-        } else {
-            System.out.println("File access cancelled by user.");
-        }
-    }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
