@@ -191,7 +191,13 @@ public class Snapshot extends javax.swing.JFrame {
             fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
         }
         FaceApi fa = new FaceApi(fileName);
-        fa.processImage();
+        try {
+            fa.processImage();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
