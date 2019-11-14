@@ -24,9 +24,9 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import nu.pattern.core.Core;
-import nu.pattern.core.Mat;
-import static nu.pattern.highgui.Highgui.imread;
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import static org.opencv.highgui.Highgui.imread;
 
 /**
  *
