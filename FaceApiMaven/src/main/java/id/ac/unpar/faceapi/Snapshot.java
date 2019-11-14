@@ -189,23 +189,24 @@ public class Snapshot extends javax.swing.JFrame {
         if (response == JFileChooser.APPROVE_OPTION) { //klo milih masuk sini
             Utils.setLastDir(fc.getSelectedFile()); //untuk setting directory dimana file itu berada
             fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
+            FaceApi fa = new FaceApi(fileName);
+            try {
+                fa.processImage();
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else {
+            System.out.println("File access cancelled by user.");
         }
-        FaceApi fa = new FaceApi(fileName);
-        try {
-            fa.processImage();
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int returnVal = jFileChooser1.showSaveDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = jFileChooser1.getSelectedFile();
-            Highgui.imwrite(file.getPath()+".jpg", frame);
+            Highgui.imwrite(file.getPath() + ".jpg", frame);
         } else {
             System.out.println("File access cancelled by user.");
         }

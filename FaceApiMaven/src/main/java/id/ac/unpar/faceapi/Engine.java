@@ -66,4 +66,60 @@ public class Engine {
         pitch = headPose.get("pitch").toString();
         yaw = headPose.get("yaw").toString();
     }
+    
+    public double getRoll(){
+        return Double.parseDouble(roll);
+    }
+    
+    public double getPitch(){
+        return Double.parseDouble(pitch);
+    }
+    
+    public double getYaw(){
+        return Double.parseDouble(yaw);
+    }
+    
+    public double getSmile(){
+        return Double.parseDouble(smile);
+    }
+    
+    public double getContempt(){
+        return Double.parseDouble(contempt);
+    }
+    
+    public double getSurprise(){
+        return Double.parseDouble(surprise);
+    }
+    
+    public double getNeutral(){
+        return Double.parseDouble(neutral);
+    }
+    
+    public double getSadness(){
+        return Double.parseDouble(sadness);
+    }
+    
+    public double getDisgust(){
+        return Double.parseDouble(disgust);
+    }
+    
+    public double getAnger(){
+        return Double.parseDouble(anger);
+    }
+    
+    public double getFear(){
+        return Double.parseDouble(fear);
+    }
+    
+    public double getExposure(){
+        return Double.parseDouble(exposureValue);
+    }
+    
+    public double getNoise(){
+        return Double.parseDouble(noiseValue);
+    }
+    
+    public String getGender(){
+        return this.gender;
+    }
 }
