@@ -46,7 +46,7 @@ public class Snapshot extends javax.swing.JFrame {
                     if (webSource.grab()) {
                         try {
                             webSource.retrieve(frame);
-                            Highgui.imencode(".bmp", frame, mem);
+                            Highgui.imencode(".jpg", frame, mem);
                             Image im = ImageIO.read(new ByteArrayInputStream(mem.toArray()));
 
                             BufferedImage buff = (BufferedImage) im;
