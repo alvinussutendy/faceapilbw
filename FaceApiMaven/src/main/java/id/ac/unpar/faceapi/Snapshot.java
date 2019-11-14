@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package faceapi;
+package id.ac.unpar.faceapi;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -182,23 +182,16 @@ public class Snapshot extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        try {
-            // TODO add your handling code here:
-            String fileName = "";
-            JFileChooser fc = Utils.getFileChooser();
-            int response = fc.showOpenDialog(this); //ngasih tau respon bahwa user telah milih foto ato ga
-
-            if (response == JFileChooser.APPROVE_OPTION) { //klo milih masuk sini
-                Utils.setLastDir(fc.getSelectedFile()); //untuk setting directory dimana file itu berada
-                fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
-            }
-            FaceApi fa = new FaceApi(fileName);
-            fa.processImage();
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
+        // TODO add your handling code here:
+        String fileName = "";
+        JFileChooser fc = Utils.getFileChooser();
+        int response = fc.showOpenDialog(this); //ngasih tau respon bahwa user telah milih foto ato ga
+        if (response == JFileChooser.APPROVE_OPTION) { //klo milih masuk sini
+            Utils.setLastDir(fc.getSelectedFile()); //untuk setting directory dimana file itu berada
+            fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
         }
+        FaceApi fa = new FaceApi(fileName);
+        fa.processImage();
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
