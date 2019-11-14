@@ -176,13 +176,13 @@ public class Snapshot extends javax.swing.JFrame {
             // TODO add your handling code here:
             String fileName = "";
             JFileChooser fc = Utils.getFileChooser();
-            int response = fc.showOpenDialog(this);
+            int response = fc.showOpenDialog(this); //ngasih tau respon bahwa user telah milih foto ato ga
 
-            if (response == JFileChooser.APPROVE_OPTION) {
-                Utils.setLastDir(fc.getSelectedFile());
-                fileName = fc.getSelectedFile().toString();
+            if (response == JFileChooser.APPROVE_OPTION) { //klo milih masuk sini
+                Utils.setLastDir(fc.getSelectedFile()); //untuk setting directory dimana file itu berada
+                fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
             }
-            FaceApi fa = new FaceApi(fileName);
+            FaceApi fa = new FaceApi(fileName); 
             fa.processImage();
         } catch (URISyntaxException ex) {
             Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
