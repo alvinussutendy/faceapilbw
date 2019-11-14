@@ -138,10 +138,4 @@ public class FaceApi {
             System.out.println(e.getMessage());
         }
     }
-
-//    public static void main(String[] args) throws URISyntaxException, IOException {
-//        FaceApi fa = new FaceApi("E:\\Document\\IF UNPAR\\Semester 7\\LBW\\Tugas Besar\\faceapilbw\\FaceApi\\Foto training\\cowo\\done\\1200px-Lee_Jong-suk_March_2018.png");
-//        fa.processImage();
-//    }
-
 }

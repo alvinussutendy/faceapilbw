@@ -175,12 +175,11 @@ public class Snapshot extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             String fileName = "";
-//            JFileChooser fc = Utils.getFileChooser();
-                JFileChooser fc = new JFileChooser();
+            JFileChooser fc = Utils.getFileChooser();
             int response = fc.showOpenDialog(this);
 
             if (response == JFileChooser.APPROVE_OPTION) {
-//                Utils.setLastDir(fc.getSelectedFile());
+                Utils.setLastDir(fc.getSelectedFile());
                 fileName = fc.getSelectedFile().toString();
             }
             FaceApi fa = new FaceApi(fileName);
@@ -261,10 +260,11 @@ public class Snapshot extends javax.swing.JFrame {
 }
 
 class Utils {
+
     private static String lastDir = null;
 
     public static JFileChooser getFileChooser() {
-        if(lastDir != null) {
+        if (lastDir != null) {
             JFileChooser fc = new JFileChooser(lastDir);
             return fc;
         } else {
