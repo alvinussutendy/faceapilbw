@@ -206,7 +206,7 @@ public class Snapshot extends javax.swing.JFrame {
         int returnVal = jFileChooser1.showSaveDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = jFileChooser1.getSelectedFile();
-            Highgui.imwrite(file.getPath(), frame);
+            Highgui.imwrite(file.getPath()+".jpg", frame);
         } else {
             System.out.println("File access cancelled by user.");
         }
