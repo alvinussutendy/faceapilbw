@@ -191,8 +191,8 @@ public class Snapshot extends javax.swing.JFrame {
         if (response == JFileChooser.APPROVE_OPTION) { //klo milih masuk sini
             Utils.setLastDir(fc.getSelectedFile()); //untuk setting directory dimana file itu berada
             fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
-            this.fa = new FaceApi(fileName);
             try {
+                this.fa = new FaceApi(fileName);
                 this.fa.processImage();
                 this.e = this.fa.getEngine();
                 this.a = new Analyst(this.e);
@@ -213,8 +213,9 @@ public class Snapshot extends javax.swing.JFrame {
             File file = jFileChooser1.getSelectedFile();
             Highgui.imwrite(file.getPath() + ".jpg", frame);
         } else {
-            System.out.println("File access cancelled by user.");
+            System.out.println("File access cancelled by user."); 
         }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -224,6 +225,15 @@ public class Snapshot extends javax.swing.JFrame {
         jButton1.setEnabled(true);
 
         webSource.release();
+        
+        try{
+            this.fa = new FaceApi(frame);
+            this.fa.processImage();
+            this.e = this.fa.getEngine();
+            this.a = new Analyst(this.e);
+            this.a.analysisFace();
+        }
+        catch(Exception e){}
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
