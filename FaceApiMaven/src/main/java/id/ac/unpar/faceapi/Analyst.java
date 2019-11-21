@@ -168,7 +168,6 @@ public class Analyst {
         } else if (engine.getGender().equals("female")) {
 
             if (Math.abs(engine.getRoll()) < MIN_ROLL_FEMALE) {
-                System.out.println("27");
                 if (engine.getRoll() < 0) {
                     System.out.println("Kurang tunduk");
                 } else {
@@ -182,96 +181,92 @@ public class Analyst {
                 }
             }
 
-            if (engine.getPitch() < MIN_PITCH_FEMALE) {
-                System.out.println("29");
-            } else if (engine.getPitch() > MAX_PITCH_FEMALE) {
-                System.out.println("30");
+            if (Math.abs(engine.getPitch()) < MIN_PITCH_FEMALE) {
+                if (engine.getPitch() < 0) {
+                    System.out.println("Kurang tunduk");
+                } else {
+                    System.out.println("Kurang tanggah");
+                }
+            } else if (Math.abs(engine.getPitch()) > MAX_PITCH_FEMALE) {
+                if (engine.getPitch() < 0) {
+                    System.out.println("Kurang tunduk");
+                } else {
+                    System.out.println("Kurang tanggah");
+                }
             }
 
-            if (engine.getYaw() < MIN_YAW_FEMALE || engine.getYaw() > MAX_YAW_FEMALE) {
-                if (engine.getYaw() >= 0) {
-                    if (engine.getYaw() < MIN_YAW_FEMALE) {
-                        System.out.println("31A");
-                    } else {
-                        System.out.println("32B");
-                    }
-                } else if (engine.getYaw() < 0) {
-                    if (engine.getYaw() < MIN_YAW_FEMALE * -1) {
-                        System.out.println("31C");
-                    } else {
-                        System.out.println("32D");
-                    }
+            if (Math.abs(engine.getYaw()) < MIN_YAW_FEMALE) {
+                if (engine.getYaw() < 0) {
+                    System.out.println("31A");
+                } else {
+                    System.out.println("32B");
+                }
+            } else if (Math.abs(engine.getYaw()) > MAX_YAW_FEMALE) {
+                if (engine.getYaw() < 0) {
+                    System.out.println("31C");
+                } else {
+                    System.out.println("32D");
                 }
             }
-            if (engine.getSmile() < MIN_SMILE_FEMALE || engine.getSmile() > MAX_SMILE_FEMALE) {
-                if (engine.getSmile() < MIN_SMILE_FEMALE) {
-                    System.out.println("33");
-                } else {
-                    System.out.println("34");
-                }
+
+            if (engine.getSmile() < MIN_SMILE_FEMALE) {
+                System.out.println("Kurang senyum");
+            } else if (engine.getSmile() > MAX_SMILE_FEMALE) {
+                System.out.println("Terlalu senyum");
             }
-            if (engine.getContempt() < MIN_CONTEMPT_FEMALE || engine.getContempt() > MAX_CONTEMPT_FEMALE) {
-                if (engine.getContempt() < MIN_CONTEMPT_FEMALE) {
-                    System.out.println("35");
-                } else {
-                    System.out.println("36");
-                }
+
+            if (engine.getContempt() < MIN_CONTEMPT_FEMALE) {
+                System.out.println("Kurang belagu");
+            } else if (engine.getContempt() > MAX_CONTEMPT_FEMALE) {
+                System.out.println("Terlalu belagu");
             }
-            if (engine.getSurprise() < MIN_SURPRISE_FEMALE || engine.getSurprise() > MAX_SURPRISE_FEMALE) {
-                if (engine.getSurprise() < MIN_SURPRISE_FEMALE) {
-                    System.out.println("37");
-                } else {
-                    System.out.println("38");
-                }
+
+            if (engine.getSurprise() < MIN_SURPRISE_FEMALE) {
+                System.out.println("Kurang heboh");
+            } else if (engine.getSurprise() > MAX_SURPRISE_FEMALE) {
+                System.out.println("Terlalu heboh");
             }
-            if (engine.getNeutral() < MIN_NEUTRAL_FEMALE || engine.getNeutral() > MAX_NEUTRAL_FEMALE) {
-                if (engine.getNeutral() < MIN_NEUTRAL_FEMALE) {
-                    System.out.println("39");
-                } else {
-                    System.out.println("40");
-                }
+
+            if (engine.getNeutral() < MIN_NEUTRAL_FEMALE) {
+                System.out.println("Kurang netral");
+            } else if (engine.getNeutral() > MAX_NEUTRAL_FEMALE) {
+                System.out.println("Terlalu netral");
             }
-            if (engine.getSadness() < MIN_SADNESS_FEMALE || engine.getSadness() > MAX_SADNESS_FEMALE) {
-                if (engine.getSadness() < MIN_SADNESS_FEMALE) {
-                    System.out.println("41");
-                } else {
-                    System.out.println("42");
-                }
+
+            if (engine.getSadness() < MIN_SADNESS_FEMALE) {
+                System.out.println("Kurang sedih");
+            } else if (engine.getSadness() > MAX_SADNESS_FEMALE) {
+                System.out.println("Terlalu sedih");
             }
-            if (engine.getDisgust() < MIN_DISGUST_FEMALE || engine.getDisgust() > MAX_DISGUST_FEMALE) {
-                if (engine.getDisgust() < MIN_DISGUST_FEMALE) {
-                    System.out.println("43");
-                } else {
-                    System.out.println("44");
-                }
+
+            if (engine.getDisgust() < MIN_DISGUST_FEMALE) {
+                System.out.println("Kurang jijik");
+            } else if (engine.getDisgust() > MAX_DISGUST_FEMALE) {
+                System.out.println("Terlalu jijik");
             }
-            if (engine.getAnger() < MIN_ANGER_FEMALE || engine.getAnger() > MAX_ANGER_FEMALE) {
-                if (engine.getAnger() < MIN_ANGER_FEMALE) {
-                    System.out.println("45");
-                } else {
-                    System.out.println("46");
-                }
+
+            if (engine.getAnger() < MIN_ANGER_FEMALE) {
+                System.out.println("Kurang marah");
+            } else if (engine.getAnger() > MAX_ANGER_FEMALE) {
+                System.out.println("Terlalu marah");
             }
-            if (engine.getFear() < MIN_FEAR_FEMALE || engine.getFear() > MAX_FEAR_FEMALE) {
-                if (engine.getFear() < MIN_FEAR_FEMALE) {
-                    System.out.println("47");
-                } else {
-                    System.out.println("48");
-                }
+
+            if (engine.getFear() < MIN_FEAR_FEMALE) {
+                System.out.println("Kurang takut");
+            } else if (engine.getFear() > MAX_FEAR_FEMALE) {
+                System.out.println("Terlalu takut");
             }
-            if (engine.getExposure() < MIN_EXPOSURE_FEMALE || engine.getExposure() > MAX_EXPOSURE_FEMALE) {
-                if (engine.getExposure() < MIN_EXPOSURE_FEMALE) {
-                    System.out.println("49");
-                } else {
-                    System.out.println("50");
-                }
+
+            if (engine.getExposure() < MIN_EXPOSURE_FEMALE) {
+                System.out.println("Kurang terang");
+            } else if (engine.getExposure() > MAX_EXPOSURE_FEMALE) {
+                System.out.println("Terlalu terang");
             }
-            if (engine.getNoise() < MIN_NOISE_FEMALE || engine.getNoise() > MAX_NOISE_FEMALE) {
-                if (engine.getNoise() < MIN_NOISE_FEMALE) {
-                    System.out.println("52");
-                } else {
-                    System.out.println("53");
-                }
+
+            if (engine.getNoise() < MIN_NOISE_FEMALE) {
+                System.out.println("Kurang noise");
+            } else if (engine.getNoise() > MAX_NOISE_FEMALE) {
+                System.out.println("Terlalu banyak noise");
             }
         }
     }
