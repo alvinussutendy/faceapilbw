@@ -24,6 +24,9 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfByte;
+import org.opencv.highgui.Highgui;
 
 /**
  * import org.opencv.core.Core; import org.opencv.core.Mat; import static org.opencv.highgui.Highgui.imread;
@@ -47,12 +50,25 @@ public class FaceApi {
             = "gender,headPose,smile,emotion,occlusion,blur,exposure,noise";
     
     Engine e;
+    byte[] data;
 
     /**
      * @param args the command line arguments
      */
-    public FaceApi(String imageAddress) {
+    public FaceApi(String imageAddress) throws IOException {
         this.imageAddress = imageAddress;
+        
+        BufferedImage bImage = ImageIO.read(new File(imageAddress));
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ImageIO.write(bImage, "jpg", bos);
+        this.data = bos.toByteArray();
+    }
+    
+    public FaceApi(Mat img){
+        MatOfByte matOfByte = new MatOfByte();
+        Highgui.imencode(".jpg", img, matOfByte);
+//        Imgcodecs.imencode(".jpg", img, matOfByte);
+        this.data = matOfByte.toArray(); //data = byte[]
     }
 
     public void processImage() throws URISyntaxException, IOException {
@@ -67,11 +83,8 @@ public class FaceApi {
         String tutup = "\"}";
         String imageWithFaces = depan + link + tutup;
 
-        BufferedImage bImage = ImageIO.read(new File(imageAddress));
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(bImage, "jpg", bos);
-        byte[] data = bos.toByteArray();
-        ByteArrayEntity content = new ByteArrayEntity(data);
+        //Preparing content
+        ByteArrayEntity content = new ByteArrayEntity(this.data);
         System.out.println(content);
 
         try {
