@@ -66,7 +66,7 @@ public class Analyst {
     private static final double MAX_NOISE_FEMALE = 0.5157;
 
     private Engine engine;
-
+    
     public Analyst(Engine engine) {
         this.engine = engine;
     }
@@ -103,7 +103,6 @@ public class Analyst {
             }
 
             if (Math.abs(engine.getYaw()) < MIN_YAW_MALE) {
-                System.out.println("27");
                 if (engine.getYaw() < 0) {
                     System.out.println("Kurang noleh ke kiri");
                 } else {
