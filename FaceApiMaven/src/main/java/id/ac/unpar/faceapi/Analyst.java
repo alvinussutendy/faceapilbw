@@ -72,6 +72,7 @@ public class Analyst {
     }
 
     public void analysisFace() {
+        System.out.println("\nAnalysing Face...");
         if (engine.getGender().equals("male")) {
             if (engine.getRoll() < MIN_ROLL_MALE || engine.getRoll() > MAX_ROLL_MALE) {
                 if (engine.getRoll() < MIN_ROLL_MALE) {
