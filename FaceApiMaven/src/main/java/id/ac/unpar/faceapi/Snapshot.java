@@ -75,7 +75,6 @@ public class Snapshot extends javax.swing.JFrame {
      */
     public Snapshot() {
         initComponents();
-//        this.fa = new FaceApi("");
     }
 
     /**
@@ -192,7 +191,7 @@ public class Snapshot extends javax.swing.JFrame {
         if (response == JFileChooser.APPROVE_OPTION) { //klo milih masuk sini
             Utils.setLastDir(fc.getSelectedFile()); //untuk setting directory dimana file itu berada
             fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
-            FaceApi fa = new FaceApi(fileName);
+            this.fa = new FaceApi(fileName);
             try {
                 fa.processImage();
             } catch (URISyntaxException ex) {
