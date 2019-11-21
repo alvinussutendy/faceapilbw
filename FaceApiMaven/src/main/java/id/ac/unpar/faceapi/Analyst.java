@@ -75,185 +75,185 @@ public class Analyst {
         if (engine.getGender().equals("male")) {
             if (engine.getRoll() < MIN_ROLL_MALE || engine.getRoll() > MAX_ROLL_MALE) {
                 if (engine.getRoll() < MIN_ROLL_MALE) {
-                    System.out.println("");
+                    System.out.println("1");
                 } else {
-                    System.out.println("");
+                    System.out.println("2");
                 }
             }
             if (engine.getPitch() < MIN_PITCH_MALE || engine.getPitch() > MAX_PITCH_MALE) {
                 if (engine.getPitch() < MIN_PITCH_MALE) {
-                    System.out.println("");
+                    System.out.println("3");
                 } else {
-                    System.out.println("");
+                    System.out.println("4");
                 }
             }
             if (engine.getYaw() < MIN_YAW_MALE || engine.getYaw() > MAX_YAW_MALE) {
                 if (engine.getYaw() < MIN_YAW_MALE) {
-                    System.out.println("");
+                    System.out.println("5");
                 } else {
-                    System.out.println("");
+                    System.out.println("6");
                 }
             }
             if (engine.getSmile() < MIN_SMILE_MALE || engine.getSmile() > MAX_SMILE_MALE) {
                 if (engine.getSmile() < MIN_SMILE_MALE) {
-                    System.out.println("");
+                    System.out.println("7");
                 } else {
-                    System.out.println("");
+                    System.out.println("8");
                 }
             }
             if (engine.getContempt() < MIN_CONTEMPT_MALE || engine.getContempt() > MAX_CONTEMPT_MALE) {
                 if (engine.getContempt() < MIN_CONTEMPT_MALE) {
-                    System.out.println("");
+                    System.out.println("9");
                 } else {
-                    System.out.println("");
+                    System.out.println("10");
                 }
             }
             if (engine.getSurprise() < MIN_SURPRISE_MALE || engine.getSurprise() > MAX_SURPRISE_MALE) {
                 if (engine.getSurprise() < MIN_SURPRISE_MALE) {
-                    System.out.println("");
+                    System.out.println("11");
                 } else {
-                    System.out.println("");
+                    System.out.println("12");
                 }
             }
             if (engine.getNeutral() < MIN_NEUTRAL_MALE || engine.getNeutral() > MAX_NEUTRAL_MALE) {
                 if (engine.getNeutral() < MIN_NEUTRAL_MALE) {
-                    System.out.println("");
+                    System.out.println("13");
                 } else {
-                    System.out.println("");
+                    System.out.println("14");
                 }
             }
             if (engine.getSadness() < MIN_SADNESS_MALE || engine.getSadness() > MAX_SADNESS_MALE) {
                 if (engine.getSadness() < MIN_SADNESS_MALE) {
-                    System.out.println("");
+                    System.out.println("15");
                 } else {
-                    System.out.println("");
+                    System.out.println("16");
                 }
             }
             if (engine.getDisgust() < MIN_DISGUST_MALE || engine.getDisgust() > MAX_DISGUST_MALE) {
                 if (engine.getDisgust() < MIN_DISGUST_MALE) {
-                    System.out.println("");
+                    System.out.println("17");
                 } else {
-                    System.out.println("");
+                    System.out.println("18");
                 }
             }
             if (engine.getAnger() < MIN_ANGER_MALE || engine.getAnger() > MAX_ANGER_MALE) {
                 if (engine.getAnger() < MIN_ANGER_MALE) {
-                    System.out.println("");
+                    System.out.println("19");
                 } else {
-                    System.out.println("");
+                    System.out.println("20");
                 }
             }
             if (engine.getFear() < MIN_FEAR_MALE || engine.getFear() > MAX_FEAR_MALE) {
                 if (engine.getFear() < MIN_FEAR_MALE) {
-                    System.out.println("");
+                    System.out.println("21");
                 } else {
-                    System.out.println("");
+                    System.out.println("22");
                 }
             }
             if (engine.getExposure() < MIN_EXPOSURE_MALE || engine.getExposure() > MAX_EXPOSURE_MALE) {
                 if (engine.getExposure() < MIN_EXPOSURE_MALE) {
-                    System.out.println("");
+                    System.out.println("23");
                 } else {
-                    System.out.println("");
+                    System.out.println("24");
                 }
             }
             if (engine.getNoise() < MIN_NOISE_MALE || engine.getNoise() > MAX_NOISE_MALE) {
                 if (engine.getNoise() < MIN_NOISE_MALE) {
-                    System.out.println("");
+                    System.out.println("25");
                 } else {
-                    System.out.println("");
+                    System.out.println("26");
                 }
             }
         } else if (engine.getGender().equals("female")) {
             if (engine.getRoll() < MIN_ROLL_FEMALE || engine.getRoll() > MAX_ROLL_FEMALE) {
                 if (engine.getRoll() < MIN_ROLL_FEMALE) {
-                    System.out.println("");
+                    System.out.println("27");
                 } else {
-                    System.out.println("");
+                    System.out.println("28");
                 }
             }
             if (engine.getPitch() < MIN_PITCH_FEMALE || engine.getPitch() > MAX_PITCH_FEMALE) {
                 if (engine.getPitch() < MIN_PITCH_FEMALE) {
-                    System.out.println("");
+                    System.out.println("29");
                 } else {
-                    System.out.println("");
+                    System.out.println("30");
                 }
             }
             if (engine.getYaw() < MIN_YAW_FEMALE || engine.getYaw() > MAX_YAW_FEMALE) {
                 if (engine.getYaw() < MIN_YAW_FEMALE) {
-                    System.out.println("");
+                    System.out.println("31");
                 } else {
-                    System.out.println("");
+                    System.out.println("32");
                 }
             }
             if (engine.getSmile() < MIN_SMILE_FEMALE || engine.getSmile() > MAX_SMILE_FEMALE) {
                 if (engine.getSmile() < MIN_SMILE_FEMALE) {
-                    System.out.println("");
+                    System.out.println("33");
                 } else {
-                    System.out.println("");
+                    System.out.println("34");
                 }
             }
             if (engine.getContempt() < MIN_CONTEMPT_FEMALE || engine.getContempt() > MAX_CONTEMPT_FEMALE) {
                 if (engine.getContempt() < MIN_CONTEMPT_FEMALE) {
-                    System.out.println("");
+                    System.out.println("35");
                 } else {
-                    System.out.println("");
+                    System.out.println("36");
                 }
             }
             if (engine.getSurprise() < MIN_SURPRISE_FEMALE || engine.getSurprise() > MAX_SURPRISE_FEMALE) {
                 if (engine.getSurprise() < MIN_SURPRISE_FEMALE) {
-                    System.out.println("");
+                    System.out.println("37");
                 } else {
-                    System.out.println("");
+                    System.out.println("38");
                 }
             }
             if (engine.getNeutral() < MIN_NEUTRAL_FEMALE || engine.getNeutral() > MAX_NEUTRAL_FEMALE) {
                 if (engine.getNeutral() < MIN_NEUTRAL_FEMALE) {
-                    System.out.println("");
+                    System.out.println("39");
                 } else {
-                    System.out.println("");
+                    System.out.println("40");
                 }
             }
             if (engine.getSadness() < MIN_SADNESS_FEMALE || engine.getSadness() > MAX_SADNESS_FEMALE) {
                 if (engine.getSadness() < MIN_SADNESS_FEMALE) {
-                    System.out.println("");
+                    System.out.println("41");
                 } else {
-                    System.out.println("");
+                    System.out.println("42");
                 }
             }
             if (engine.getDisgust() < MIN_DISGUST_FEMALE || engine.getDisgust() > MAX_DISGUST_FEMALE) {
                 if (engine.getDisgust() < MIN_DISGUST_FEMALE) {
-                    System.out.println("");
+                    System.out.println("43");
                 } else {
-                    System.out.println("");
+                    System.out.println("44");
                 }
             }
             if (engine.getAnger() < MIN_ANGER_FEMALE || engine.getAnger() > MAX_ANGER_FEMALE) {
                 if (engine.getAnger() < MIN_ANGER_FEMALE) {
-                    System.out.println("");
+                    System.out.println("45");
                 } else {
-                    System.out.println("");
+                    System.out.println("46");
                 }
             }
             if (engine.getFear() < MIN_FEAR_FEMALE || engine.getFear() > MAX_FEAR_FEMALE) {
                 if (engine.getFear() < MIN_FEAR_FEMALE) {
-                    System.out.println("");
+                    System.out.println("47");
                 } else {
-                    System.out.println("");
+                    System.out.println("48");
                 }
             }
             if (engine.getExposure() < MIN_EXPOSURE_FEMALE || engine.getExposure() > MAX_EXPOSURE_FEMALE) {
                 if (engine.getExposure() < MIN_EXPOSURE_FEMALE) {
-                    System.out.println("");
+                    System.out.println("49");
                 } else {
-                    System.out.println("");
+                    System.out.println("50");
                 }
             }
             if (engine.getNoise() < MIN_NOISE_FEMALE || engine.getNoise() > MAX_NOISE_FEMALE) {
                 if (engine.getNoise() < MIN_NOISE_FEMALE) {
-                    System.out.println("");
+                    System.out.println("52");
                 } else {
-                    System.out.println("");
+                    System.out.println("53");
                 }
             }
         }
