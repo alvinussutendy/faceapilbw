@@ -35,7 +35,7 @@ public class Snapshot extends javax.swing.JFrame {
     Mat frame = new Mat();
     MatOfByte mem = new MatOfByte();
     
-    FaceApi fa;
+    FaceApi fa; Engine e; Analyst a;
 
     class DaemonThread implements Runnable {
 
@@ -193,7 +193,9 @@ public class Snapshot extends javax.swing.JFrame {
             fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
             this.fa = new FaceApi(fileName);
             try {
-                fa.processImage();
+                this.fa.processImage();
+                this.e = this.fa.getEngine();
+                this.a = new Analyst(this.e);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
