@@ -196,6 +196,7 @@ public class Snapshot extends javax.swing.JFrame {
                 this.fa.processImage();
                 this.e = this.fa.getEngine();
                 this.a = new Analyst(this.e);
+                this.a.analysisFace();
             } catch (URISyntaxException ex) {
                 Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
