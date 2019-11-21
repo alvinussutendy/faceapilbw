@@ -166,30 +166,37 @@ public class Analyst {
                 }
             }
         } else if (engine.getGender().equals("female")) {
-            if (engine.getRoll() < MIN_ROLL_FEMALE || engine.getRoll() > MAX_ROLL_FEMALE) {
-                if (engine.getRoll() < MIN_ROLL_FEMALE) {
-                    System.out.println("27");
+
+            if (Math.abs(engine.getRoll()) < MIN_ROLL_FEMALE) {
+                System.out.println("27");
+                if (engine.getRoll() < 0) {
+                    System.out.println("Kurang tunduk");
                 } else {
-                    System.out.println("28");
+                    System.out.println("Kurang tanggah");
+                }
+            } else if (Math.abs(engine.getRoll()) > MAX_ROLL_FEMALE) {
+                if (engine.getRoll() < 0) {
+                    System.out.println("Kurang tanggah");
+                } else {
+                    System.out.println("Kurang tunduk");
                 }
             }
-            if (engine.getPitch() < MIN_PITCH_FEMALE || engine.getPitch() > MAX_PITCH_FEMALE) {
-                if (engine.getPitch() < MIN_PITCH_FEMALE) {
-                    System.out.println("29");
-                } else {
-                    System.out.println("30");
-                }
+
+            if (engine.getPitch() < MIN_PITCH_FEMALE) {
+                System.out.println("29");
+            } else if (engine.getPitch() > MAX_PITCH_FEMALE) {
+                System.out.println("30");
             }
+
             if (engine.getYaw() < MIN_YAW_FEMALE || engine.getYaw() > MAX_YAW_FEMALE) {
-                if(engine.getYaw() >= 0){
+                if (engine.getYaw() >= 0) {
                     if (engine.getYaw() < MIN_YAW_FEMALE) {
                         System.out.println("31A");
                     } else {
                         System.out.println("32B");
                     }
-                }
-                else if(engine.getYaw() < 0){
-                    if (engine.getYaw() < MIN_YAW_FEMALE*-1) {
+                } else if (engine.getYaw() < 0) {
+                    if (engine.getYaw() < MIN_YAW_FEMALE * -1) {
                         System.out.println("31C");
                     } else {
                         System.out.println("32D");
