@@ -45,6 +45,8 @@ public class FaceApi {
 
     private static final String faceAttributes
             = "gender,headPose,smile,emotion,occlusion,blur,exposure,noise";
+    
+    Engine e;
 
     /**
      * @param args the command line arguments
@@ -115,7 +117,7 @@ public class FaceApi {
                     System.out.println(jsonObject.toString(2));
 
                     //Proses disini
-                    Engine e = new Engine(jsonObject);
+                    this.e = new Engine(jsonObject);
 
                     //Testing 2
                     System.out.println("Testing 2");
@@ -137,5 +139,9 @@ public class FaceApi {
             // Display error message.
             System.out.println(e.getMessage());
         }
+    }
+    
+    public Engine getEngine(){
+        return this.e;
     }
 }

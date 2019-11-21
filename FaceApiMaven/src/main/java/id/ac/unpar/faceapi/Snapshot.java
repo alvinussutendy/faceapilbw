@@ -34,6 +34,8 @@ public class Snapshot extends javax.swing.JFrame {
 
     Mat frame = new Mat();
     MatOfByte mem = new MatOfByte();
+    
+    FaceApi fa;
 
     class DaemonThread implements Runnable {
 
@@ -73,6 +75,7 @@ public class Snapshot extends javax.swing.JFrame {
      */
     public Snapshot() {
         initComponents();
+//        this.fa = new FaceApi("");
     }
 
     /**
