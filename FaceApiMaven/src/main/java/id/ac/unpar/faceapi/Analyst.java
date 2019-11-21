@@ -181,10 +181,19 @@ public class Analyst {
                 }
             }
             if (engine.getYaw() < MIN_YAW_FEMALE || engine.getYaw() > MAX_YAW_FEMALE) {
-                if (engine.getYaw() < MIN_YAW_FEMALE) {
-                    System.out.println("31");
-                } else {
-                    System.out.println("32");
+                if(engine.getYaw() >= 0){
+                    if (engine.getYaw() < MIN_YAW_FEMALE) {
+                        System.out.println("31A");
+                    } else {
+                        System.out.println("32B");
+                    }
+                }
+                else{
+                    if (engine.getYaw() < MIN_YAW_FEMALE*-1) {
+                        System.out.println("31C");
+                    } else {
+                        System.out.println("32D");
+                    }
                 }
             }
             if (engine.getSmile() < MIN_SMILE_FEMALE || engine.getSmile() > MAX_SMILE_FEMALE) {
