@@ -188,7 +188,7 @@ public class Analyst {
                         System.out.println("32B");
                     }
                 }
-                else{
+                else if(engine.getYaw() < 0){
                     if (engine.getYaw() < MIN_YAW_FEMALE*-1) {
                         System.out.println("31C");
                     } else {
