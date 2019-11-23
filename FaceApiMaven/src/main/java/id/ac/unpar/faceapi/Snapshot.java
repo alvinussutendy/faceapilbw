@@ -198,7 +198,6 @@ public class Snapshot extends javax.swing.JFrame {
         jButton1.setEnabled(false);  //start button
         jButton2.setEnabled(true);  // stop button
         
-        textArea1.setText("Test \n Test2");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -252,6 +251,7 @@ public class Snapshot extends javax.swing.JFrame {
             this.a.analysisFace();
         }
         catch(Exception e){}
+        textArea1.setText(a.getSugestionResult().toString());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
