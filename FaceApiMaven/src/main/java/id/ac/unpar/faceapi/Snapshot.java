@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -214,7 +215,23 @@ public class Snapshot extends javax.swing.JFrame {
                 this.e = this.fa.getEngine();
                 this.a = new Analyst(this.e);
                 this.a.analysisFace();
-                textArea1.setText(a.getSugestionResult().toString());
+                
+                //output////////////////////                
+                // convert byte array back to BufferedImage
+                byte[] imageInByte = this.fa.getBytePicture();
+                if(imageInByte != null){
+                    InputStream in = new ByteArrayInputStream(imageInByte);
+                    BufferedImage bImageFromConvert = ImageIO.read(in);
+                    BufferedImage buff = bImageFromConvert;
+
+                    //textAreaOutput
+                    textArea1.setText(a.getSugestionResult().toString());
+
+                    //draw image to output
+                    Graphics g = jPanel1.getGraphics();
+                    g.drawImage(buff, 0, 0, getWidth(), getHeight() - 150, 0, 0, buff.getWidth(), buff.getHeight(), null);
+                }
+                
             } catch (URISyntaxException ex) {
                 Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {

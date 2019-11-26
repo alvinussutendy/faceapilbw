@@ -157,4 +157,8 @@ public class FaceApi {
     public Engine getEngine(){
         return this.e;
     }
+    
+    public byte[] getBytePicture(){
+        return this.data;
+    }
 }
