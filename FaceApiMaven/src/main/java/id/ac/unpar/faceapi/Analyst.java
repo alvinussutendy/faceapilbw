@@ -94,21 +94,20 @@ public class Analyst {
                 }
             }
             if (Math.abs(engine.getPitch()) < MIN_PITCH_MALE) {
-                System.out.println("27");
                 if (engine.getPitch() < 0) {
-                    sugestionResult += "Kurang tengadah" + "\n";
-                    System.out.println("Kurang tengadah");
-                } else {
                     sugestionResult += "Kurang tunduk" + "\n";
                     System.out.println("Kurang tunduk");
+                } else {
+                    sugestionResult += "Kurang tengadah" + "\n";
+                    System.out.println("Kurang tengadah");
                 }
             } else if (Math.abs(engine.getPitch()) > MAX_PITCH_MALE) {
                 if (engine.getPitch() < 0) {
-                    sugestionResult += "Kurang tunduk" + "\n";
-                    System.out.println("Kurang tunduk");
-                } else {
                     sugestionResult += "Kurang tengadah" + "\n";
                     System.out.println("Kurang tengadah");
+                } else {
+                    sugestionResult += "Kurang tunduk" + "\n";
+                    System.out.println("Kurang tunduk");
                 }
             }
 
@@ -226,21 +225,20 @@ public class Analyst {
                 }
             }
             if (Math.abs(engine.getPitch()) < MIN_PITCH_FEMALE) {
-                System.out.println("27");
                 if (engine.getPitch() < 0) {
-                    sugestionResult += "Kurang tengadah" + "\n";
-                    System.out.println("Kurang tengadah");
-                } else {
                     sugestionResult += "Kurang tunduk" + "\n";
                     System.out.println("Kurang tunduk");
+                } else {
+                    sugestionResult += "Kurang tengadah" + "\n";
+                    System.out.println("Kurang tengadah");
                 }
             } else if (Math.abs(engine.getPitch()) > MAX_PITCH_FEMALE) {
                 if (engine.getPitch() < 0) {
-                    sugestionResult += "Kurang tunduk" + "\n";
-                    System.out.println("Kurang tunduk");
-                } else {
                     sugestionResult += "Kurang tengadah" + "\n";
                     System.out.println("Kurang tengadah");
+                } else {
+                    sugestionResult += "Kurang tunduk" + "\n";
+                    System.out.println("Kurang tunduk");
                 }
             }
 
