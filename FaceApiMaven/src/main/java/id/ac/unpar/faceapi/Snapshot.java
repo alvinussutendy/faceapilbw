@@ -229,7 +229,7 @@ public class Snapshot extends javax.swing.JFrame {
 
                     //draw image to output
                     Graphics g = jPanel1.getGraphics();
-                    g.drawImage(buff, 0, 0, getWidth(), getHeight() - 150, 0, 0, buff.getWidth(), buff.getHeight(), null);
+                    g.drawImage(buff, 0, 0, getWidth()-400, getHeight()-200, 0, 0, buff.getWidth(), buff.getHeight(), null);
                 }
                 
             } catch (URISyntaxException ex) {
