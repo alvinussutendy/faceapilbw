@@ -251,7 +251,7 @@ public class Snapshot extends javax.swing.JFrame {
             }
             System.out.println("lama waktu:" + (System.currentTimeMillis() - start) / 1000);
             if (System.currentTimeMillis() >= end) {
-                textArea1.setText("Proses melebihi batas waktu!\n\n" + a.getSugestionResult().toString());
+                textArea1.setText("Proses melebihi batas waktu!\nCoba cek koneksi internet anda\n\n" + a.getSugestionResult().toString());
             } else {
                 textArea1.setText(a.getSugestionResult().toString());
             }
@@ -302,7 +302,7 @@ public class Snapshot extends javax.swing.JFrame {
         }
         System.out.println("lama waktu:" + (System.currentTimeMillis() - start) / 1000);
         if (System.currentTimeMillis() >= end) {
-            textArea1.setText("Proses melebihi batas waktu!\n\n Coba cek koneksi internet anda" + a.getSugestionResult().toString());
+            textArea1.setText("Proses melebihi batas waktu!\n\n Coba cek koneksi internet anda\n\n" + a.getSugestionResult().toString());
         } else {
             textArea1.setText(a.getSugestionResult().toString());
         }
