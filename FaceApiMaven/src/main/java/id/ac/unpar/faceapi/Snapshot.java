@@ -35,8 +35,10 @@ public class Snapshot extends javax.swing.JFrame {
 
     Mat frame = new Mat();
     MatOfByte mem = new MatOfByte();
-    
-    FaceApi fa; Engine e; Analyst a;
+
+    FaceApi fa;
+    Engine e;
+    Analyst a;
 
     class DaemonThread implements Runnable {
 
@@ -198,7 +200,7 @@ public class Snapshot extends javax.swing.JFrame {
         t.start();
         jButton1.setEnabled(false);  //start button
         jButton2.setEnabled(true);  // stop button
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -207,37 +209,53 @@ public class Snapshot extends javax.swing.JFrame {
         JFileChooser fc = Utils.getFileChooser();
         int response = fc.showOpenDialog(this); //ngasih tau respon bahwa user telah milih foto ato ga
         if (response == JFileChooser.APPROVE_OPTION) { //klo milih masuk sini
-            Utils.setLastDir(fc.getSelectedFile()); //untuk setting directory dimana file itu berada
-            fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
-            try {
-                this.fa = new FaceApi(fileName);
-                this.fa.processImage();
-                this.e = this.fa.getEngine();
-                this.a = new Analyst(this.e);
-                this.a.analysisFace();
-                
-                //output////////////////////                
-                // convert byte array back to BufferedImage
-                byte[] imageInByte = this.fa.getBytePicture();
-                if(imageInByte != null){
-                    InputStream in = new ByteArrayInputStream(imageInByte);
-                    BufferedImage bImageFromConvert = ImageIO.read(in);
-                    BufferedImage buff = bImageFromConvert;
 
-                    //textAreaOutput
-                    textArea1.setText(a.getSugestionResult().toString());
-
-                    //draw image to output
-                    Graphics g = jPanel1.getGraphics();
-                    g.drawImage(buff, 0, 0, jPanel1.getWidth(), jPanel1.getHeight(), 0, 0, buff.getWidth(), buff.getHeight(), null);
+            long start = System.currentTimeMillis();
+            long end = start + 5 * 1000;
+            boolean tempRun = false;
+            while (System.currentTimeMillis() < end) {
+                if (tempRun == true) {
+                    break;
                 }
-                
-            } catch (URISyntaxException ex) {
-                Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
+                if (tempRun == false) {
+
+                    Utils.setLastDir(fc.getSelectedFile()); //untuk setting directory dimana file itu berada
+                    fileName = fc.getSelectedFile().toString(); //ambil file foto ke dalam string
+                    try {
+                        this.fa = new FaceApi(fileName);
+                        this.fa.processImage();
+                        this.e = this.fa.getEngine();
+                        this.a = new Analyst(this.e);
+                        this.a.analysisFace();
+
+                        //output////////////////////                
+                        // convert byte array back to BufferedImage
+                        byte[] imageInByte = this.fa.getBytePicture();
+                        if (imageInByte != null) {
+                            InputStream in = new ByteArrayInputStream(imageInByte);
+                            BufferedImage bImageFromConvert = ImageIO.read(in);
+                            BufferedImage buff = bImageFromConvert;
+
+                            //draw image to output
+                            Graphics g = jPanel1.getGraphics();
+                            g.drawImage(buff, 0, 0, jPanel1.getWidth(), jPanel1.getHeight(), 0, 0, buff.getWidth(), buff.getHeight(), null);
+                        }
+
+                    } catch (URISyntaxException ex) {
+                        Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Snapshot.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                tempRun = true;
             }
-        }else {
+            System.out.println("lama waktu:" + (System.currentTimeMillis() - start) / 1000);
+            if (System.currentTimeMillis() >= end) {
+                textArea1.setText("Proses melebihi batas waktu!\n\n" + a.getSugestionResult().toString());
+            } else {
+                textArea1.setText(a.getSugestionResult().toString());
+            }
+        } else {
             System.out.println("File access cancelled by user.");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -248,28 +266,46 @@ public class Snapshot extends javax.swing.JFrame {
             File file = jFileChooser1.getSelectedFile();
             Highgui.imwrite(file.getPath() + ".jpg", frame);
         } else {
-            System.out.println("File access cancelled by user."); 
+            System.out.println("File access cancelled by user.");
         }
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        /// stop button 
-        myThread.runnable = false;
-        jButton2.setEnabled(false);
-        jButton1.setEnabled(true);
 
-        webSource.release();
-        
-        try{
-            this.fa = new FaceApi(frame);
-            this.fa.processImage();
-            this.e = this.fa.getEngine();
-            this.a = new Analyst(this.e);
-            this.a.analysisFace();
+        long start = System.currentTimeMillis();
+        long end = start + 5 * 1000;
+        boolean tempRun = false;
+        while (System.currentTimeMillis() < end) {
+            if (tempRun == true) {
+                break;
+            }
+            if (tempRun == false) {
+                /// stop button 
+                myThread.runnable = false;
+                jButton2.setEnabled(false);
+                jButton1.setEnabled(true);
+
+                webSource.release();
+
+                try {
+                    this.fa = new FaceApi(frame);
+                    this.fa.processImage();
+                    this.e = this.fa.getEngine();
+                    this.a = new Analyst(this.e);
+                } catch (Exception e) {
+     
+                }
+                this.a.analysisFace();
+            }
+            tempRun = true;
         }
-        catch(Exception e){}
-        textArea1.setText(a.getSugestionResult().toString());
+        System.out.println("lama waktu:" + (System.currentTimeMillis() - start) / 1000);
+        if (System.currentTimeMillis() >= end) {
+            textArea1.setText("Proses melebihi batas waktu!\n\n Coba cek koneksi internet anda" + a.getSugestionResult().toString());
+        } else {
+            textArea1.setText(a.getSugestionResult().toString());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

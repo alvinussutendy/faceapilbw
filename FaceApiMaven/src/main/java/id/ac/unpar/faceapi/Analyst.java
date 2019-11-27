@@ -75,271 +75,267 @@ public class Analyst {
 
     public void analysisFace() {
         System.out.println("\nAnalysing Face...");
-        if (engine.getGender().equals("male")) {
-            if (Math.abs(engine.getRoll()) < MIN_ROLL_MALE) {
-                if (engine.getRoll() < 0) {
-                    sugestionResult += "Kurang gideuk ke kanan" + "\n";
-                    System.out.println("Kurang gideuk ke kanan");
-                } else {
-                    sugestionResult += "Kurang gideuk kiri" + "\n";
-                    System.out.println("Kurang gideuk ke kiri");
+        try {
+            String concat = "Keterangan:\n";
+            concat += "gideuk = kepala miring ke kiri/kanan\n";
+            concat += "noleh = kepala menengok ke kiri/kanan\n";
+            if (engine.getGender().equals("male")) {
+                if (Math.abs(engine.getRoll()) < MIN_ROLL_MALE) {
+                    if (engine.getRoll() < 0) {
+                        sugestionResult += "Kurang gideuk ke kanan" + "\n";
+                        System.out.println("Kurang gideuk ke kanan");
+                    } else {
+                        sugestionResult += "Kurang gideuk kiri" + "\n";
+                        System.out.println("Kurang gideuk ke kiri");
+                    }
+                } else if (Math.abs(engine.getRoll()) > MAX_ROLL_MALE) {
+                    if (engine.getRoll() < 0) {
+                        sugestionResult += "Kurang gideuk ke kiri" + "\n";
+                        System.out.println("Kurang gideuk ke kiri");
+                    } else {
+                        sugestionResult += "Kurang gideuk ke kanan" + "\n";
+                        System.out.println("Kurang gideuk ke kanan");
+                    }
                 }
-            } else if (Math.abs(engine.getRoll()) > MAX_ROLL_MALE) {
-                if (engine.getRoll() < 0) {
-                    sugestionResult += "Kurang gideuk ke kiri" + "\n";
-                    System.out.println("Kurang gideuk ke kiri");
-                } else {
-                    sugestionResult += "Kurang gideuk ke kanan" + "\n";
-                    System.out.println("Kurang gideuk ke kanan");
+                if (Math.abs(engine.getPitch()) < MIN_PITCH_MALE) {
+                    if (engine.getPitch() < 0) {
+                        sugestionResult += "Kurang tunduk" + "\n";
+                        System.out.println("Kurang tunduk");
+                    } else {
+                        sugestionResult += "Kurang tengadah" + "\n";
+                        System.out.println("Kurang tengadah");
+                    }
+                } else if (Math.abs(engine.getPitch()) > MAX_PITCH_MALE) {
+                    if (engine.getPitch() < 0) {
+                        sugestionResult += "Kurang tengadah" + "\n";
+                        System.out.println("Kurang tengadah");
+                    } else {
+                        sugestionResult += "Kurang tunduk" + "\n";
+                        System.out.println("Kurang tunduk");
+                    }
+                }
+
+                if (Math.abs(engine.getYaw()) < MIN_YAW_MALE) {
+                    if (engine.getYaw() < 0) {
+                        sugestionResult += "Kurang noleh ke kanan" + "\n";
+                        System.out.println("Kurang noleh ke kanan");
+                    } else {
+                        sugestionResult += "Kurang noleh ke kiri" + "\n";
+                        System.out.println("Kurang noleh ke kiri");
+                    }
+                } else if (Math.abs(engine.getYaw()) > MAX_YAW_MALE) {
+                    if (engine.getYaw() < 0) {
+                        sugestionResult += "Kurang noleh ke kiri" + "\n";
+                        System.out.println("Kurang noleh ke kiri");
+                    } else {
+                        sugestionResult += "Kurang noleh ke kanan" + "\n";
+                        System.out.println("Kurang noleh ke kanan");
+                    }
+                }
+
+                if (engine.getSmile() < MIN_SMILE_MALE) {
+                    sugestionResult += "Kurang senyum" + "\n";
+                    System.out.println("Kurang senyum");
+                } else if (engine.getSmile() > MAX_SMILE_MALE) {
+                    sugestionResult += "Terlalu senyum" + "\n";
+                    System.out.println("Terlalu senyum");
+                }
+
+                if (engine.getContempt() < MIN_CONTEMPT_MALE) {
+                    sugestionResult += "Kurang belagu" + "\n";
+                    System.out.println("kurang belagu");
+                } else if (engine.getContempt() > MAX_CONTEMPT_MALE) {
+                    sugestionResult += "Terlalu belagu" + "\n";
+                    System.out.println("Terlalu belagu");
+                }
+
+                if (engine.getSurprise() < MIN_SURPRISE_MALE) {
+                    sugestionResult += "Kurang heboh" + "\n";
+                    System.out.println("Kurang heboh");
+                } else if (engine.getSurprise() > MAX_SURPRISE_MALE) {
+                    sugestionResult += "Terlalu heboh" + "\n";
+                    System.out.println("Terlalu heboh");
+                }
+
+                if (engine.getSadness() < MIN_SADNESS_MALE) {
+                    sugestionResult += "Kurang sedih" + "\n";
+                    System.out.println("Kurang sedih");
+                } else if (engine.getSadness() > MAX_SADNESS_MALE) {
+                    sugestionResult += "Terlalu sedih" + "\n";
+                    System.out.println("Terlalu sedih");
+                }
+
+                if (engine.getDisgust() < MIN_DISGUST_MALE) {
+                    sugestionResult += "Kurang jijik" + "\n";
+                    System.out.println("Kurang jijik");
+                } else if (engine.getDisgust() > MAX_DISGUST_MALE) {
+                    sugestionResult += "Terlalu jijik" + "\n";
+                    System.out.println("Terlalu jijik");
+                }
+
+                if (engine.getAnger() < MIN_ANGER_MALE) {
+                    sugestionResult += "Kurang marah" + "\n";
+                    System.out.println("Kurang marah");
+                } else if (engine.getAnger() > MAX_ANGER_MALE) {
+                    sugestionResult += "Terlalu marah" + "\n";
+                    System.out.println("Terlalu marah");
+                }
+
+                if (engine.getFear() < MIN_FEAR_MALE) {
+                    sugestionResult += "Kurang takut" + "\n";
+                    System.out.println("Kurang takut");
+                } else if (engine.getFear() > MAX_FEAR_MALE) {
+                    sugestionResult += "Terlalu takut" + "\n";
+                    System.out.println("Terlalu takut");
+                }
+
+                if (engine.getExposure() < MIN_EXPOSURE_MALE) {
+                    sugestionResult += "Gambar kurang cerah" + "\n";
+                    System.out.println("Gambar kurang cerah");
+                } else if (engine.getExposure() > MAX_EXPOSURE_MALE) {
+                    sugestionResult += "Gambar terlalu cerah" + "\n";
+                    System.out.println("Gambar terlalu cerah");
+                }
+
+                if (engine.getNoise() > MAX_NOISE_MALE) {
+                    sugestionResult += "Gambar terlalu kotor" + "\n";
+                    System.out.println("Gambar terlalu kotor");
+                }
+
+            } else if (engine.getGender().equals("female")) {
+                if (Math.abs(engine.getRoll()) < MIN_ROLL_FEMALE) {
+                    if (engine.getRoll() < 0) {
+                        sugestionResult += "Kurang gideuk ke kanan" + "\n";
+                        System.out.println("Kurang gideuk ke kanan");
+                    } else {
+                        sugestionResult += "Kurang gideuk kiri" + "\n";
+                        System.out.println("Kurang gideuk ke kiri");
+                    }
+                } else if (Math.abs(engine.getRoll()) > MAX_ROLL_FEMALE) {
+                    if (engine.getRoll() < 0) {
+                        sugestionResult += "Kurang gideuk ke kiri" + "\n";
+                        System.out.println("Kurang gideuk ke kiri");
+                    } else {
+                        sugestionResult += "Kurang gideuk ke kanan" + "\n";
+                        System.out.println("Kurang gideuk ke kanan");
+                    }
+                }
+                if (Math.abs(engine.getPitch()) < MIN_PITCH_FEMALE) {
+                    if (engine.getPitch() < 0) {
+                        sugestionResult += "Kurang tunduk" + "\n";
+                        System.out.println("Kurang tunduk");
+                    } else {
+                        sugestionResult += "Kurang tengadah" + "\n";
+                        System.out.println("Kurang tengadah");
+                    }
+                } else if (Math.abs(engine.getPitch()) > MAX_PITCH_FEMALE) {
+                    if (engine.getPitch() < 0) {
+                        sugestionResult += "Kurang tengadah" + "\n";
+                        System.out.println("Kurang tengadah");
+                    } else {
+                        sugestionResult += "Kurang tunduk" + "\n";
+                        System.out.println("Kurang tunduk");
+                    }
+                }
+
+                if (Math.abs(engine.getYaw()) < MIN_YAW_FEMALE) {
+                    if (engine.getYaw() < 0) {
+                        sugestionResult += "Kurang noleh ke kanan" + "\n";
+                        System.out.println("Kurang noleh ke kanan");
+                    } else {
+                        sugestionResult += "Kurang noleh ke kiri" + "\n";
+                        System.out.println("Kurang noleh ke kiri");
+                    }
+                } else if (Math.abs(engine.getYaw()) > MAX_YAW_FEMALE) {
+                    if (engine.getYaw() < 0) {
+                        sugestionResult += "Kurang noleh ke kiri" + "\n";
+                        System.out.println("Kurang noleh ke kiri");
+                    } else {
+                        sugestionResult += "Kurang noleh ke kanan" + "\n";
+                        System.out.println("Kurang noleh ke kanan");
+                    }
+                }
+
+                if (engine.getSmile() < MIN_SMILE_FEMALE) {
+                    sugestionResult += "Kurang senyum" + "\n";
+                    System.out.println("Kurang senyum");
+                } else if (engine.getSmile() > MAX_SMILE_FEMALE) {
+                    sugestionResult += "Terlalu senyum" + "\n";
+                    System.out.println("Terlalu senyum");
+                }
+
+                if (engine.getContempt() < MIN_CONTEMPT_FEMALE) {
+                    sugestionResult += "Kurang belagu" + "\n";
+                    System.out.println("kurang belagu");
+                } else if (engine.getContempt() > MAX_CONTEMPT_FEMALE) {
+                    sugestionResult += "Terlalu belagu" + "\n";
+                    System.out.println("Terlalu belagu");
+                }
+
+                if (engine.getSurprise() < MIN_SURPRISE_FEMALE) {
+                    sugestionResult += "Kurang heboh" + "\n";
+                    System.out.println("Kurang heboh");
+                } else if (engine.getSurprise() > MAX_SURPRISE_FEMALE) {
+                    sugestionResult += "Terlalu heboh" + "\n";
+                    System.out.println("Terlalu heboh");
+                }
+
+                if (engine.getSadness() < MIN_SADNESS_FEMALE) {
+                    sugestionResult += "Kurang sedih" + "\n";
+                    System.out.println("Kurang sedih");
+                } else if (engine.getSadness() > MAX_SADNESS_FEMALE) {
+                    sugestionResult += "Terlalu sedih" + "\n";
+                    System.out.println("Terlalu sedih");
+                }
+
+                if (engine.getDisgust() < MIN_DISGUST_FEMALE) {
+                    sugestionResult += "Kurang jijik" + "\n";
+                    System.out.println("Kurang jijik");
+                } else if (engine.getDisgust() > MAX_DISGUST_FEMALE) {
+                    sugestionResult += "Terlalu jijik" + "\n";
+                    System.out.println("Terlalu jijik");
+                }
+
+                if (engine.getAnger() < MIN_ANGER_FEMALE) {
+                    sugestionResult += "Kurang marah" + "\n";
+                    System.out.println("Kurang marah");
+                } else if (engine.getAnger() > MAX_ANGER_FEMALE) {
+                    sugestionResult += "Terlalu marah" + "\n";
+                    System.out.println("Terlalu marah");
+                }
+
+                if (engine.getFear() < MIN_FEAR_FEMALE) {
+                    sugestionResult += "Kurang takut" + "\n";
+                    System.out.println("Kurang takut");
+                } else if (engine.getFear() > MAX_FEAR_FEMALE) {
+                    sugestionResult += "Terlalu takut" + "\n";
+                    System.out.println("Terlalu takut");
+                }
+
+                if (engine.getExposure() < MIN_EXPOSURE_FEMALE) {
+                    sugestionResult += "Gambar kurang cerah" + "\n";
+                    System.out.println("Gambar kurang cerah");
+                } else if (engine.getExposure() > MAX_EXPOSURE_FEMALE) {
+                    sugestionResult += "Gambar terlalu cerah" + "\n";
+                    System.out.println("Gambar terlalu cerah");
+                }
+
+                if (engine.getNoise() > MAX_NOISE_FEMALE) {
+                    sugestionResult += "Gambar terlalu kotor" + "\n";
+                    System.out.println("Gambar terlalu kotor");
                 }
             }
-            if (Math.abs(engine.getPitch()) < MIN_PITCH_MALE) {
-                if (engine.getPitch() < 0) {
-                    sugestionResult += "Kurang tunduk" + "\n";
-                    System.out.println("Kurang tunduk");
-                } else {
-                    sugestionResult += "Kurang tengadah" + "\n";
-                    System.out.println("Kurang tengadah");
-                }
-            } else if (Math.abs(engine.getPitch()) > MAX_PITCH_MALE) {
-                if (engine.getPitch() < 0) {
-                    sugestionResult += "Kurang tengadah" + "\n";
-                    System.out.println("Kurang tengadah");
-                } else {
-                    sugestionResult += "Kurang tunduk" + "\n";
-                    System.out.println("Kurang tunduk");
-                }
-            }
-
-            if (Math.abs(engine.getYaw()) < MIN_YAW_MALE) {
-                if (engine.getYaw() < 0) {
-                    sugestionResult += "Kurang noleh ke kanan" + "\n";
-                    System.out.println("Kurang noleh ke kanan");
-                } else {
-                    sugestionResult += "Kurang noleh ke kiri" + "\n";
-                    System.out.println("Kurang noleh ke kiri");
-                }
-            } else if (Math.abs(engine.getYaw()) > MAX_YAW_MALE) {
-                if (engine.getYaw() < 0) {
-                    sugestionResult += "Kurang noleh ke kiri" + "\n";
-                    System.out.println("Kurang noleh ke kiri");
-                } else {
-                    sugestionResult += "Kurang noleh ke kanan" + "\n";
-                    System.out.println("Kurang noleh ke kanan");
-                }
-            }
-
-            if (engine.getSmile() < MIN_SMILE_MALE) {
-                sugestionResult += "Kurang senyum" + "\n";
-                System.out.println("Kurang senyum");
-            } else if (engine.getSmile() > MAX_SMILE_MALE){
-                sugestionResult += "Terlalu senyum" + "\n";
-                System.out.println("Terlalu senyum");
-            }
-
-            if (engine.getContempt() < MIN_CONTEMPT_MALE) {
-                sugestionResult += "Kurang belagu" + "\n";
-                System.out.println("kurang belagu");
-            } else if (engine.getContempt() > MAX_CONTEMPT_MALE) {
-                sugestionResult += "Terlalu belagu" + "\n";
-                System.out.println("Terlalu belagu");
-            }
-
-            if (engine.getSurprise() < MIN_SURPRISE_MALE) {
-                sugestionResult += "Kurang heboh" + "\n";
-                System.out.println("Kurang heboh");
-            } else if (engine.getSurprise() > MAX_SURPRISE_MALE) {
-                sugestionResult += "Terlalu heboh" + "\n";
-                System.out.println("Terlalu heboh");
-            }
-
-            if (engine.getNeutral() < MIN_NEUTRAL_MALE) {
-                sugestionResult += "Kurang netral" + "\n";
-                System.out.println("Kurang netral");
-            } else if (engine.getNeutral() > MAX_NEUTRAL_MALE){
-                sugestionResult += "Terlalu netral" + "\n";
-                System.out.println("Terlalu netral");
-            }
-
-            if (engine.getSadness() < MIN_SADNESS_MALE) {
-                sugestionResult += "Kurang sedih" + "\n";
-                System.out.println("Kurang sedih");
-            } else if (engine.getSadness() > MAX_SADNESS_MALE){
-                sugestionResult += "Terlalu sedih" + "\n";
-                System.out.println("Terlalu sedih");
-            }
-
-            if (engine.getDisgust() < MIN_DISGUST_MALE) {
-                sugestionResult += "Kurang jijik" + "\n";
-                System.out.println("Kurang jijik");
-            } else if (engine.getDisgust() > MAX_DISGUST_MALE){
-                sugestionResult += "Terlalu jijik" + "\n";
-                System.out.println("Terlalu jijik");
-            }
-
-            if (engine.getAnger() < MIN_ANGER_MALE) {
-                sugestionResult += "Kurang marah" + "\n";
-                System.out.println("Kurang marah");
-            } else if (engine.getAnger() > MAX_ANGER_MALE){
-                sugestionResult += "Terlalu marah" + "\n";
-                System.out.println("Terlalu marah");
-            }
-
-            if (engine.getFear() < MIN_FEAR_MALE) {
-                sugestionResult += "Kurang takut" + "\n";
-                System.out.println("Kurang takut");
-            } else if (engine.getFear() > MAX_FEAR_MALE){
-                sugestionResult += "Terlalu takut" + "\n";
-                System.out.println("Terlalu takut");
-            }
-
-            if (engine.getExposure() < MIN_EXPOSURE_MALE) {
-                sugestionResult += "Gambar kurang cerah" + "\n";
-                System.out.println("Gambar kurang cerah");
-            } else if (engine.getExposure() > MAX_EXPOSURE_MALE){
-                sugestionResult += "Gambar terlalu cerah" + "\n";
-                System.out.println("Gambar terlalu cerah");
-            }
-
-            if (engine.getNoise() > MIN_NOISE_MALE) {
-                sugestionResult += "Gambar terlalu kotor" + "\n";
-                System.out.println("Gambar terlalu kotor");
-            }
-
-        } else if (engine.getGender().equals("female")) {
-            if (Math.abs(engine.getRoll()) < MIN_ROLL_FEMALE) {
-                if (engine.getRoll() < 0) {
-                    sugestionResult += "Kurang gideuk ke kanan" + "\n";
-                    System.out.println("Kurang gideuk ke kanan");
-                } else {
-                    sugestionResult += "Kurang gideuk kiri" + "\n";
-                    System.out.println("Kurang gideuk ke kiri");
-                }
-            } else if (Math.abs(engine.getRoll()) > MAX_ROLL_FEMALE) {
-                if (engine.getRoll() < 0) {
-                    sugestionResult += "Kurang gideuk ke kiri" + "\n";
-                    System.out.println("Kurang gideuk ke kiri");
-                } else {
-                    sugestionResult += "Kurang gideuk ke kanan" + "\n";
-                    System.out.println("Kurang gideuk ke kanan");
-                }
-            }
-            if (Math.abs(engine.getPitch()) < MIN_PITCH_FEMALE) {
-                if (engine.getPitch() < 0) {
-                    sugestionResult += "Kurang tunduk" + "\n";
-                    System.out.println("Kurang tunduk");
-                } else {
-                    sugestionResult += "Kurang tengadah" + "\n";
-                    System.out.println("Kurang tengadah");
-                }
-            } else if (Math.abs(engine.getPitch()) > MAX_PITCH_FEMALE) {
-                if (engine.getPitch() < 0) {
-                    sugestionResult += "Kurang tengadah" + "\n";
-                    System.out.println("Kurang tengadah");
-                } else {
-                    sugestionResult += "Kurang tunduk" + "\n";
-                    System.out.println("Kurang tunduk");
-                }
-            }
-
-            if (Math.abs(engine.getYaw()) < MIN_YAW_FEMALE) {
-                if (engine.getYaw() < 0) {
-                    sugestionResult += "Kurang noleh ke kanan" + "\n";
-                    System.out.println("Kurang noleh ke kanan");
-                } else {
-                    sugestionResult += "Kurang noleh ke kiri" + "\n";
-                    System.out.println("Kurang noleh ke kiri");
-                }
-            } else if (Math.abs(engine.getYaw()) > MAX_YAW_FEMALE) {
-                if (engine.getYaw() < 0) {
-                    sugestionResult += "Kurang noleh ke kiri" + "\n";
-                    System.out.println("Kurang noleh ke kiri");
-                } else {
-                    sugestionResult += "Kurang noleh ke kanan" + "\n";
-                    System.out.println("Kurang noleh ke kanan");
-                }
-            }
-
-            if (engine.getSmile() < MIN_SMILE_FEMALE) {
-                sugestionResult += "Kurang senyum" + "\n";
-                System.out.println("Kurang senyum");
-            } else if (engine.getSmile() > MAX_SMILE_FEMALE) {
-                sugestionResult += "Terlalu senyum" + "\n";
-                System.out.println("Terlalu senyum");
-            }
-
-            if (engine.getContempt() < MIN_CONTEMPT_FEMALE) {
-                sugestionResult += "Kurang belagu" + "\n";
-                System.out.println("kurang belagu");
-            } else if (engine.getContempt() > MAX_CONTEMPT_FEMALE){
-                sugestionResult += "Terlalu belagu" + "\n";
-                System.out.println("Terlalu belagu");
-            }
-
-            if (engine.getSurprise() < MIN_SURPRISE_FEMALE) {
-                sugestionResult += "Kurang heboh" + "\n";
-                System.out.println("Kurang heboh");
-            } else if (engine.getSurprise() > MAX_SURPRISE_FEMALE) {
-                sugestionResult += "Terlalu heboh" + "\n";
-                System.out.println("Terlalu heboh");
-            }
-
-            if (engine.getNeutral() < MIN_NEUTRAL_FEMALE) {
-                sugestionResult += "Kurang netral" + "\n";
-                System.out.println("Kurang netral");
-            } else if (engine.getNeutral() > MAX_NEUTRAL_FEMALE){
-                sugestionResult += "Terlalu netral" + "\n";
-                System.out.println("Terlalu netral");
-            }
-
-            if (engine.getSadness() < MIN_SADNESS_FEMALE) {
-                sugestionResult += "Kurang sedih" + "\n";
-                System.out.println("Kurang sedih");
-            } else if (engine.getSadness() > MAX_SADNESS_FEMALE){
-                sugestionResult += "Terlalu sedih" + "\n";
-                System.out.println("Terlalu sedih");
-            }
-
-            if (engine.getDisgust() < MIN_DISGUST_FEMALE) {
-                sugestionResult += "Kurang jijik" + "\n";
-                System.out.println("Kurang jijik");
-            } else if (engine.getDisgust() > MAX_DISGUST_FEMALE){
-                sugestionResult += "Terlalu jijik" + "\n";
-                System.out.println("Terlalu jijik");
-            }
-
-            if (engine.getAnger() < MIN_ANGER_FEMALE) {
-                sugestionResult += "Kurang marah" + "\n";
-                System.out.println("Kurang marah");
-            } else if (engine.getAnger() > MAX_ANGER_FEMALE){
-                sugestionResult += "Terlalu marah" + "\n";
-                System.out.println("Terlalu marah");
-            }
-
-            if (engine.getFear() < MIN_FEAR_FEMALE) {
-                sugestionResult += "Kurang takut" + "\n";
-                System.out.println("Kurang takut");
-            } else if (engine.getFear() > MAX_FEAR_FEMALE) {
-                sugestionResult += "Terlalu takut" + "\n";
-                System.out.println("Terlalu takut");
-            }
-
-            if (engine.getExposure() < MIN_EXPOSURE_FEMALE) {
-                sugestionResult += "Gambar kurang cerah" + "\n";
-                System.out.println("Gambar kurang cerah");
-            } else if (engine.getExposure() > MAX_EXPOSURE_FEMALE){
-                sugestionResult += "Gambar terlalu cerah" + "\n";
-                System.out.println("Gambar terlalu cerah");
-            }
-
-            if (engine.getNoise() > MIN_NOISE_FEMALE) {
-                sugestionResult += "Gambar terlalu kotor" + "\n";
-                System.out.println("Gambar terlalu kotor");
-            }
+            this.sugestionResult += "\n\n" + concat;
+        } catch (Exception e) {
+            this.sugestionResult = "Periksa koneksi internet anda!";
         }
     }
 
     public String getSugestionResult() {
+
+        if (this.sugestionResult.equals("")) {
+            this.sugestionResult += "Selamat, anda berhasil!";
+        } 
         return this.sugestionResult;
     }
 }
